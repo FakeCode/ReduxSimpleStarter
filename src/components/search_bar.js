@@ -13,12 +13,13 @@ class SearchBar extends Component {
         <div>
         <input
         value = {this.state.term} 
-        onChange = {(event) => this.setState({term: event.target.value})} />
+        onChange = {event => this.onInputChange(event.target.value)} />
     </div>)
     }
 
-    onInputChange(eventObject) {
-        console.log(eventObject.target.value);
+    onInputChange(term) {
+        this.setState({term});
+        this.props.onVideoSearchChange(term);
     }
 
 }
